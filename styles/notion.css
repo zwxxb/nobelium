@@ -1,10 +1,7 @@
-/* NOTION CSS OVERRIDE */
-
 :root {
   --no-leading: 2rem;
 
   /* Notion colors */
-
   --notion-gray: rgb(120, 119, 116);
   --notion-brown: rgb(159, 107, 83);
   --notion-orange: rgb(217, 115, 13);
@@ -27,8 +24,7 @@
 }
 
 :root.dark {
-  /* Notion colors */
-
+  /* Dark mode Notion colors */
   --notion-gray: rgb(155, 155, 155);
   --notion-brown: rgb(186, 133, 111);
   --notion-orange: rgb(199, 125, 72);
@@ -50,10 +46,53 @@
   --notion-red_background: rgb(82, 46, 42);
 }
 
+/* General Notion-like styles */
 .notion {
   @apply text-gray-600 dark:text-gray-300;
   overflow-wrap: break-word;
 }
+
+/* Code Block Styling */
+pre[class*='language-'],
+code[class*='language-'] {
+  background-color: var(--notion-gray_background);
+  color: var(--notion-gray);
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+:root.dark pre[class*='language-'],
+:root.dark code[class*='language-'] {
+  background-color: var(--notion-gray_background);
+  color: var(--notion-gray);
+}
+
+/* Inline code styling */
+code {
+  background-color: var(--notion-gray_background);
+  color: var(--notion-red);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.875rem;
+}
+
+/* Adjusted for inline code */
+p code {
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Specific adjustments for dark mode */
+:root.dark code {
+  background-color: var(--notion-gray_background);
+  color: var(--notion-gray);
+}
+
+/* Other styles inherited */
 .notion,
 .notion-text,
 .notion-quote,
@@ -62,6 +101,8 @@
   @apply my-3;
   line-height: var(--no-leading);
 }
+
+/* Notion-specific styles */
 .notion-page-link {
   color: inherit;
 }
